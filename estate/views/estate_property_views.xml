@@ -1,8 +1,94 @@
 <?xml version="1.0"?>
 <odoo>
+    <!-- Vista di default -->
     <record id="estate_property_action" model="ir.actions.act_window">
-        <field name="name">Estate Property</field>
+        <field name="name">Properties List</field>
         <field name="res_model">estate.property</field>
         <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Viste custom -->
+
+    <!-- Vista List (Tree) -->
+    <record id="estate_property_tree_action" model="ir.ui.view">
+        <field name="name">estate.property.tree</field>
+        <field name="model">estate.property</field>
+        <field name="arch" type="xml">
+            <tree string="Estate Property Tree">
+                <field name="name"/>
+                <field name="postcode"/>
+                <field name="bedrooms"/>
+                <field name="living_area" string="Living Area (sqm)"/>
+                <field name="expected_price"/>
+                <field name="selling_price"/>
+                <field name="date_availability" string="Available from"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vista Form (Form) -->
+    <record id="estate_property_form_action" model="ir.ui.view">
+        <field name="name">estate.property.form</field>
+        <field name="model">estate.property</field>
+        <field name="arch" type="xml">
+            <form string="Estate Property Form">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="postcode"/>
+                            <field name="date_availability"/>
+                        </group>
+                        <group>
+                            <field name="expected_price"/>
+                            <field name="selling_price"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description">
+                            <group>
+                                <field name="description"/>
+                                <field name="bedrooms"/>
+                                <field name="living_area" string="Living Area (sqm)"/>
+                                <field name="facades"/>
+                                <field name="garage"/>
+                                <field name="garden"/>
+                                <field name="garden_area" string="Garden Area (sqm)"/>
+                                <field name="garden_orientation"/>
+                            </group>
+                        </page>
+                        <page string="Other">
+                            <group>
+                                <field name="active"/>
+                                <field name="state"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista Search (Search) -->
+    <record id="estate_property_search_action" model="ir.ui.view">
+        <field name="name">estate.property.search</field>
+        <field name="model">estate.property</field>
+        <field name="arch" type="xml">
+            <search string="Estate Property Serach">
+                <field name="name"/>
+                <field name="postcode"/>
+                <field name="expected_price"/>
+                <field name="bedrooms"/>
+                <field name="living_area" string="Living Area (sqm)"/>
+                <field name="facades"/>
+                <separator/>
+                <filter name="Available Properties" domain="['|', ('state', '=', 'new'), ('state', '=', 'offer received')]"/>
+                <group string="Group By">
+                    <filter string="Postcode" name="postcode" context="{'group_by':'postcode'}"/>
+                </group>
+            </search>
+        </field>
     </record>
 </odoo>
