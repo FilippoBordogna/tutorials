@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<odoo>
+    <!-- Vista di default -->
+    <record id="estate_type_action" model="ir.actions.act_window">
+        <field name="name">Property Types</field>
+        <field name="res_model">estate.type</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Viste custom -->
+
+    <!-- Vista List (Tree) -->
+    <record id="estate_type_tree_action" model="ir.ui.view">
+        <field name="name">estate.type.tree</field>
+        <field name="model">estate.type</field>
+        <field name="arch" type="xml">
+            <tree string="Estate Type Tree">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vista Form (Form) -->
+    <record id="estate_type_form_action" model="ir.ui.view">
+        <field name="name">estate.type.form</field>
+        <field name="model">estate.type</field>
+        <field name="arch" type="xml">
+            <form string="Estate Property Types Form">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name"/></h1>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista Search (Search) -->
+    <record id="estate_type_search_action" model="ir.ui.view">
+        <field name="name">estate.type.search</field>
+        <field name="model">estate.type</field>
+        <field name="arch" type="xml">
+            <search string="Estate Property Types Serach">
+                <field name="name"/>
+            </search>
+        </field>
+    </record>
+</odoo>

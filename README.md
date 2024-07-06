@@ -15,3 +15,5 @@ https://www.odoo.com/documentation/17.0/developer/tutorials/server_framework_101
 https://www.odoo.com/documentation/17.0/developer/tutorials/server_framework_101/05_firstui.html
 ### 6: Basic Views
 https://www.odoo.com/documentation/17.0/developer/tutorials/server_framework_101/06_basicviews.html
+### 7: Relations Between Models
+https://www.odoo.com/documentation/17.0/developer/tutorials/server_framework_101/07_relations.html
