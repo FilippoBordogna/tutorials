@@ -19,3 +19,5 @@ https://www.odoo.com/documentation/17.0/developer/tutorials/server_framework_101
 https://www.odoo.com/documentation/17.0/developer/tutorials/server_framework_101/07_relations.html
 ### 8: Computed Fields And Onchanges
 https://www.odoo.com/documentation/17.0/developer/tutorials/server_framework_101/08_compute_onchange.html
+### 9: Ready For Some Action
+https://www.odoo.com/documentation/17.0/developer/tutorials/server_framework_101/09_actions.html
