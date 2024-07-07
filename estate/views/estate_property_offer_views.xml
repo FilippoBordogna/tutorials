@@ -9,6 +9,8 @@
                 <field name="price"/>
                 <field name="partner_id"/>
                 <field name="state"/>
+                <field name="validity"/>
+                <field name="date_deadline" string="Date Deadline"/>
             </tree>
         </field>
     </record>
@@ -24,6 +26,9 @@
                         <field name="price"/>
                         <field name="partner_id"/>
                         <field name="state"/>
+                        <field name="create_date" string="Creation Date"/>
+                        <field name="validity"/>
+                        <field name="date_deadline" string="Date Deadline"/>    
                     </group>
                 </sheet>
             </form>
