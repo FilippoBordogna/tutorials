@@ -1,5 +1,4 @@
-from odoo import models, fields, api
-from odoo import exceptions
+from odoo import models, fields, api, exceptions
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
@@ -33,13 +32,25 @@ class estate_property(models.Model):
         required = True,
         default = 'new'
     )
-    property_type_id = fields.Many2one("estate.type", string="Type")
+    property_type_id = fields.Many2one("estate.property.type", string="Type")
     buyer = fields.Many2one("res.partner", string="Buyer", copy=False)
     salesperson = fields.Many2one("res.users", string="Sales Person", default=lambda self: self.env.user)
     tag_ids = fields.Many2many("estate.property.tag", string="Tags")
     offer_ids = fields.One2many("estate.property.offer", "property_id", string="Offers")
     total_area = fields.Float(compute="_compute_total_area")
     best_price = fields.Float(compute="_compute_best_price")
+
+    _sql_constraints = [
+        ('check_expected_price_positive', 'CHECK(expected_price >= 0)','Expected Price cannot be negative'),
+        ('check_selling_price_positive', 'CHECK(selling_price >= 0)','Selling Price cannot be negative')
+    ]
+
+    @api.constrains('selling_price')
+    def _check_selling_price(self):
+        for record in self:
+            if record.selling_price < (0.9 * record.expected_price):
+                raise exceptions.UserError("The selling price cannot be less than 90% of the expected price")
+
 
     @api.depends('living_area', 'garden_area')
     def _compute_total_area(self):

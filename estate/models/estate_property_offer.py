@@ -1,4 +1,4 @@
-from odoo import models, fields, api
+from odoo import models, fields, api, exceptions
 from datetime import datetime, timedelta 
 
 class estate_property_offer(models.Model):
@@ -18,6 +18,10 @@ class estate_property_offer(models.Model):
     validity = fields.Integer(default=7)
     create_date = fields.Date(default = datetime.now())
     date_deadline = fields.Date(compute="_compute_date_deadline", inverse="_inverse_date_deadline")
+
+    _sql_constraints = [
+        ('check_price_positive', 'CHECK(price >= 0)','Price cannot be negative')
+    ]
 
     @api.depends("create_date", "validity")
     def _compute_date_deadline(self):

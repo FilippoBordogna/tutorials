@@ -21,3 +21,5 @@ https://www.odoo.com/documentation/17.0/developer/tutorials/server_framework_101
 https://www.odoo.com/documentation/17.0/developer/tutorials/server_framework_101/08_compute_onchange.html
 ### 9: Ready For Some Action
 https://www.odoo.com/documentation/17.0/developer/tutorials/server_framework_101/09_actions.html
+### 10: Constraints
+https://www.odoo.com/documentation/17.0/developer/tutorials/server_framework_101/10_constraints.html
