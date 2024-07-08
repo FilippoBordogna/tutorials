@@ -23,3 +23,5 @@ https://www.odoo.com/documentation/17.0/developer/tutorials/server_framework_101
 https://www.odoo.com/documentation/17.0/developer/tutorials/server_framework_101/09_actions.html
 ### 10: Constraints
 https://www.odoo.com/documentation/17.0/developer/tutorials/server_framework_101/10_constraints.html
+### 11: Add the Sprinkles
+https://www.odoo.com/documentation/17.0/developer/tutorials/server_framework_101/11_sprinkles.html

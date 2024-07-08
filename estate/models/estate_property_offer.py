@@ -19,6 +19,8 @@ class estate_property_offer(models.Model):
     create_date = fields.Date(default = datetime.now())
     date_deadline = fields.Date(compute="_compute_date_deadline", inverse="_inverse_date_deadline")
 
+    _order = "price desc"
+
     _sql_constraints = [
         ('check_price_positive', 'CHECK(price >= 0)','Price cannot be negative')
     ]

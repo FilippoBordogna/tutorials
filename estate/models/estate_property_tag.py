@@ -6,6 +6,10 @@ class estate_property_tag(models.Model):
 
     name = fields.Char(required=True)
 
+    _order = "name"
+
     _sql_constraints = [
         ('check_unique_name', 'UNIQUE(name)','The name of the tag must be unique')
     ]
+
+    

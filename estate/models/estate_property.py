@@ -40,6 +40,8 @@ class estate_property(models.Model):
     total_area = fields.Float(compute="_compute_total_area")
     best_price = fields.Float(compute="_compute_best_price")
 
+    _order = "id desc"
+
     _sql_constraints = [
         ('check_expected_price_positive', 'CHECK(expected_price >= 0)','Expected Price cannot be negative'),
         ('check_selling_price_positive', 'CHECK(selling_price >= 0)','Selling Price cannot be negative')
